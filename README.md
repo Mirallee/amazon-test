@@ -109,7 +109,7 @@ Work to do :
       | price      |
       | relevance  |
 
-  Scenario Outline: Filter products by <criteria> <value>
+  Scenario: Filter products by <criteria> <value>
     Given the user is on the product listing page
     When the user filters the products by <criteria> with <value>
     Then only products with <criteria> equal to <value> are displayed
@@ -119,7 +119,7 @@ Work to do :
       | brand      | Nike   |
       | color      | Blue   |
     
-  Scenario Outline: Verify filtered results
+  Scenario: Verify filtered results
     Given the user is on the product listing page
     When the user filters the products by <criteria> with <value>
     Then only products with <criteria> equal to <value> are displayed
