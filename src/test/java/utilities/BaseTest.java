@@ -1,4 +1,4 @@
-package pages;
+package utilities;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import pages.LandingPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +23,7 @@ import java.util.Properties;
 
 public class BaseTest {
     public WebDriver driver;
+    public LandingPage landingPage;
 
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
@@ -55,5 +59,24 @@ public class BaseTest {
         List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
         });
         return data;
+    }
+    @BeforeMethod(alwaysRun=true)
+    public LandingPage launchApplication() throws IOException
+    {
+
+        driver = initializeDriver();
+        landingPage = new LandingPage(driver);
+        landingPage.goTo();
+        landingPage.clickAcceptCookiesButton();
+        return landingPage;
+
+
+    }
+
+    @AfterMethod(alwaysRun=true)
+
+    public void tearDown()
+    {
+        driver.close();
     }
 }
