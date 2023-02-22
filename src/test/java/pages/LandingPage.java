@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.AbstractComponents;
 
+import java.util.List;
+
 public class LandingPage extends AbstractComponents {
     WebDriver driver;
 
@@ -23,10 +25,16 @@ public class LandingPage extends AbstractComponents {
     WebElement userPassword;
     @FindBy(css = ".a-list-item")
     WebElement wrongDataMessage;
-    @FindBy(css = "span[class='nav-line-2 ']")
+    @FindBy(css = "#nav-your-amazon-text")
     WebElement myAmazonButton;
     @FindBy(css = "#sp-cc-accept")
     WebElement cookiesButton;
+    @FindBy(css = "#nav-cart-count-container")
+    WebElement goToCartPageButton;
+
+    public void clickCartPageButton(){
+        goToCartPageButton.click();
+    }
 
     public void clickAcceptCookiesButton(){
         cookiesButton.click();
