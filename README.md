@@ -9,15 +9,9 @@ Work to do :
     When the user enters "keywords" in the search bar
     And clicks the search button                                                                                                                                       
     Then the search results page is displayed                                                                                                                           
-    And the search results display products related to "keywords"                                                                                                      
+    And the search results display products related to "keywords"                                                                                                       
     
-  Scenario: Verify the search results page displays the correct number of products                                                                                     
-    Given the user is on the search results page                                                                                                                       
-    When the search results are displayed                                                                                                                             
-    Then the number of products displayed matches the expected number                                                                                                 
-    
-
-            Feature: Login functionality
+            Feature: Login functionality - Done 19.02.2023
 
   Scenario: Log in using valid email and password                                                                                                                     
     Given the user is on the login page                                                                                                                                
@@ -50,7 +44,6 @@ Work to do :
     When the user removes a product                                                                                                                                   
     Then the product is removed from the cart                                                                                                                          
     
-    
             Feature: Checkout functionality
 
   Scenario: Proceed to checkout and fill in shipping information                                                                                                       
@@ -58,13 +51,6 @@ Work to do :
     When the user clicks the checkout button                                                                                                                          
     And fills in the shipping information                                                                                                                              
     Then the user is redirected to the payment page                                                                                                                    
-
-  Scenario: Select a payment method                                                                                                                                     
-    Given the user is on the payment page                                                                                                                             
-    When the user selects a payment method                                                                                                                            
-    And clicks the "Place Order" button                                                                                                                               
-    Then the order is placed                                                                                                                                          
-    
     
             Feature: Product details page
 
@@ -77,7 +63,6 @@ Work to do :
     Given the user is on the product details page                                                                                                                       
     When the product information is displayed                                                                                                                           
     Then the product information displayed matches the expected information                                                                                            
-    
     
             Feature: User account management
 
