@@ -32,7 +32,7 @@ public class ProductCatalogue extends AbstractComponents {
     }
     public WebElement getProductByName(String productName)
     {
-        WebElement prod =	getProductList().stream().filter(product->
+        WebElement prod = getProductList().stream().filter(product->
                 product.findElement(By.cssSelector("div[class*='p13n-sc-truncate-desktop-type2  p13n-sc-truncated']")).getText().equals(productName)).findFirst().orElse(null);
         return prod;
     }

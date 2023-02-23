@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(amountOfProductsInCart.equalsIgnoreCase("Suma (liczba produktów: 4):"));
         cartPage.deleteProductFromCart();
         String messageOfDeletedProducts = cartPage.getMessageOfProductIsDeleted();
-        Assert.assertTrue(messageOfDeletedProducts.equalsIgnoreCase("– przedmiot usunięty z Koszyk."));
+        Assert.assertTrue(messageOfDeletedProducts.equalsIgnoreCase("Koszyk w serwisie Amazon jest pusty."));
     }
     @DataProvider
     public Object[][] getData() throws IOException {

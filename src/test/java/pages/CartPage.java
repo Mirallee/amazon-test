@@ -6,8 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.AbstractComponents;
+
+import java.time.Duration;
 
 public class CartPage extends AbstractComponents {
     WebDriver driver;
@@ -25,13 +29,15 @@ public class CartPage extends AbstractComponents {
     WebElement getAmountOfProductsInCart;
     @FindBy(css = "span[class='a-size-small sc-action-delete'] span[class='a-declarative']")
     WebElement deleteProduct;
-    @FindBy(css = "div[data-action='delete'] a[class='a-link-normal sc-product-link']")
-    WebElement messageOfProductDelete;
+    @FindBy(css = ".a-spacing-mini.a-spacing-top-base")
+
+    WebElement messageOfCartIsEmpty;
 
     public void editAmountOfProduct() throws InterruptedException {
         quanityBox.click();
         select4ProductsInQuanityBox.click();
         Thread.sleep(1000);
+
 
     }
     public String getTextOfAmountCartProducts() {
@@ -41,6 +47,6 @@ public class CartPage extends AbstractComponents {
         deleteProduct.click();
     }
     public String getMessageOfProductIsDeleted(){
-        return messageOfProductDelete.getText();
+        return messageOfCartIsEmpty.getText();
     }
 }
