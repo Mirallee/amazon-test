@@ -36,8 +36,8 @@ public class ProductCatalogue extends AbstractComponents {
                 product.findElement(By.cssSelector("div[class*='p13n-sc-truncate-desktop-type2  p13n-sc-truncated']")).getText().equals(productName)).findFirst().orElse(null);
         return prod;
     }
-    public void addProductToCart(String productName)
-    {
+
+    public void addProductToCart(String productName) {
         WebElement prod = getProductByName(productName);
         prod.findElement(clickOnProduct).click();
         addToCart.click();

@@ -17,6 +17,7 @@ public class LandingPage extends AbstractComponents {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(css = "#nav-link-accountList-nav-line-1")
     WebElement loginButton;
     @FindBy(css = "#ap_email")
@@ -31,12 +32,18 @@ public class LandingPage extends AbstractComponents {
     WebElement cookiesButton;
     @FindBy(css = "#nav-cart-count-container")
     WebElement goToCartPageButton;
+    @FindBy(css = "#twotabsearchtextbox")
+    WebElement searchField;
 
-    public void clickCartPageButton(){
+    public void searchForProduct() {
+        searchField.sendKeys("U Nk Perf Stirrup-Team" + Keys.ENTER);
+    }
+
+    public void clickCartPageButton() {
         goToCartPageButton.click();
     }
 
-    public void clickAcceptCookiesButton(){
+    public void clickAcceptCookiesButton() {
         cookiesButton.click();
     }
 
@@ -48,20 +55,24 @@ public class LandingPage extends AbstractComponents {
     public void goTo() {
         driver.get("https://www.amazon.pl/");
     }
+
     public void loginApplication(String email, String password) {
         loginButton.click();
         userEmail.sendKeys(email + Keys.ENTER);
         userPassword.sendKeys(password + Keys.ENTER);
     }
+
     public void loginWithWrongEmail(String email) {
         loginButton.click();
         userEmail.sendKeys(email + Keys.ENTER);
     }
+
     public void loginWithCorrectEmailButWrongPasswordValidation(String email, String password) {
         loginButton.click();
         userEmail.sendKeys(email + Keys.ENTER);
         userPassword.sendKeys(password + Keys.ENTER);
     }
+
     public String getErrorMessage() {
         return wrongDataMessage.getText();
     }

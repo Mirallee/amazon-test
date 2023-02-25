@@ -32,6 +32,13 @@ public class CartPage extends AbstractComponents {
     @FindBy(css = ".a-spacing-mini.a-spacing-top-base")
 
     WebElement messageOfCartIsEmpty;
+    @FindBy(css = "#sc-buy-box-ptc-button")
+    WebElement buttonFinalizePurchase;
+
+
+    public void clickOnFinalizePurchase() {
+        buttonFinalizePurchase.click();
+    }
 
     public void editAmountOfProduct() throws InterruptedException {
         quanityBox.click();

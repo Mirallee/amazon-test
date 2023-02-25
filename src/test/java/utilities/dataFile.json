@@ -2,6 +2,11 @@
   {
     "email": "testworker00@gmail.com",
     "password": "test1@@3",
-    "product": "Duracell 2032 Baterie Guzikowe, Srebrne, 3 V/ 2 szt"
+    "product": "Duracell 2032 Baterie Guzikowe, Srebrne, 3 V/ 2 szt",
+    "searchProduct": "U Nk Perf Stirrup-Team",
+    "fullName": "Patryk Osowski",
+    "phoneNumber": "999999999",
+    "streetAndNumber": "Feradaya 1",
+    "zipCode": "03-171"
   }
 ]
