@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "getData")
-    public void searchFuncionality(HashMap<String, String> input) throws InterruptedException {
+    public void searchFuncionality(HashMap<String, String> input) {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.loginApplication(input.get("email"), input.get("password"));
         landingPage.searchForProduct();
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(productTitleVerify.equalsIgnoreCase("Nike U Nk Perf Stirrup-Team"));
     }
     @Test(dataProvider = "getData")
-    public void checkoutFuncionality(HashMap<String, String> input) throws InterruptedException {
+    public void checkoutFuncionality(HashMap<String, String> input) {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.loginApplication(input.get("email"), input.get("password"));
         landingPage.clickMyAmazonButton();
@@ -62,6 +62,29 @@ public class LoginTest extends BaseTest {
         checkoutPage.waitForMethodsOfPaymentLoad();
         String myMethodsPayment = checkoutPage.getTextOfMyPaymentMethods();
         Assert.assertTrue(myMethodsPayment.equalsIgnoreCase("Moje systemy płatności"));
+    }
+    @Test(dataProvider = "getData")
+    public void productDetailsFuncionality(HashMap<String, String> input) {
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.loginApplication(input.get("email"), input.get("password"));
+        landingPage.clickMyAmazonButton();
+        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+        productCatalogue.clickOnProductToMoveIntoDetailsPage(input.get("product"));
+        ProductDetailsPage pdp = new ProductDetailsPage(driver);
+        String informationOfProduct = pdp.verificationOfInformationsAboutProductIsDisplayed();
+        Assert.assertTrue(informationOfProduct.equalsIgnoreCase("Informacje o tym produkcie"));
+        String brandNameOfProduct = pdp.getBrandNameOfProduct();
+        Assert.assertTrue(brandNameOfProduct.equalsIgnoreCase("Duracell"));
+    }
+    @Test(dataProvider = "getData")
+    public void accountManagement(HashMap<String, String> input) {
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.loginApplication(input.get("email"), input.get("password"));
+        landingPage.clickMyAccountButton();
+        AccountManagementPage amp = new AccountManagementPage(driver);
+        amp.clickMyOrdersButton();
+        String messageOfNoOrders = amp.noOrdersInLastThreeMonths();
+        Assert.assertTrue(messageOfNoOrders.equalsIgnoreCase("Wygląda na to, że w ciągu ostatnich 3 miesięcy nie złożono żadnych zamówień. Przeglądaj zamówienia z 2023"));
     }
 
     @DataProvider

@@ -34,6 +34,12 @@ public class LandingPage extends AbstractComponents {
     WebElement goToCartPageButton;
     @FindBy(css = "#twotabsearchtextbox")
     WebElement searchField;
+    @FindBy(css = "#nav-link-accountList-nav-line-1")
+    WebElement myAccountButton;
+
+    public void clickMyAccountButton(){
+        myAccountButton.click();
+    }
 
     public void searchForProduct() {
         searchField.sendKeys("U Nk Perf Stirrup-Team" + Keys.ENTER);

@@ -23,6 +23,8 @@ public class ProductCatalogue extends AbstractComponents {
     WebElement goToCartPageButton;
     @FindBy(css = ".a-column.a-span12.a-text-center._cDEzb_grid-column_UjCjt.p13n-grid-column-root")
     List<WebElement> products;
+    @FindBy(xpath = "//span[contains(@class,'a-size-base a-text-bold')]//div[contains(@class,'p13n-sc-truncated')]")
+            WebElement goToProductDetailsPage;
     By productsBy = By.cssSelector(".a-column.a-span12.a-text-center._cDEzb_grid-column_UjCjt.p13n-grid-column-root");
     By clickOnProduct = By.cssSelector(".p13n-sc-uncoverable-faceout");
 
@@ -42,5 +44,10 @@ public class ProductCatalogue extends AbstractComponents {
         prod.findElement(clickOnProduct).click();
         addToCart.click();
         goToCartPageButton.click();
+    }
+    public void clickOnProductToMoveIntoDetailsPage(String productName) {
+        WebElement prod = getProductByName(productName);
+        prod.findElement(clickOnProduct).click();
+        goToProductDetailsPage.click();
     }
 }
