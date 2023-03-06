@@ -2,7 +2,7 @@
 
 Work to do :
 
-         Feature: Search functionality
+         Feature: Search functionality  - Done 25.02.2023
 
   Scenario: Search for a product using keywords                                                                                                                         
     Given the user is on the homepage                                                                                                                                   
@@ -27,7 +27,7 @@ Work to do :
     Then an error message is displayed                                                                                                                                 
     
     
-            Feature: Cart functionality
+            Feature: Cart functionality  - Done 25.02.2023
 
   Scenario: Add a product to the cart                                                                                                                                 
     Given the user is on a product page                                                                                                                               
@@ -44,7 +44,7 @@ Work to do :
     When the user removes a product                                                                                                                                   
     Then the product is removed from the cart                                                                                                                          
     
-            Feature: Checkout functionality
+            Feature: Checkout functionality  - Done 26.02.2023
 
   Scenario: Proceed to checkout and fill in shipping information                                                                                                       
     Given the user has added products to the cart                                                                                                                       
@@ -52,7 +52,7 @@ Work to do :
     And fills in the shipping information                                                                                                                              
     Then the user is redirected to the payment page                                                                                                                    
     
-            Feature: Product details page
+            Feature: Product details page  - Done 26.02.2023
 
   Scenario: View product details                                                                                                                                       
     Given the user is on the homepage                                                                                                                                 
@@ -64,7 +64,7 @@ Work to do :
     When the product information is displayed                                                                                                                           
     Then the product information displayed matches the expected information                                                                                            
     
-            Feature: User account management
+            Feature: User account management  - Started 26.02.2023
 
   Scenario: Update user profile information                                                                                                                           
     Given the user is logged in                                                                                                                                        
