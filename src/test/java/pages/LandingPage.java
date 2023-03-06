@@ -42,7 +42,7 @@ public class LandingPage extends AbstractComponents {
     }
 
     public void searchForProduct() {
-        searchField.sendKeys("U Nk Perf Stirrup-Team" + Keys.ENTER);
+        searchField.sendKeys("ATOMOWE NAWYKI" + Keys.ENTER);
     }
 
     public void clickCartPageButton() {

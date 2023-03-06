@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -24,6 +23,7 @@ public class LoginTest extends BaseTest {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.loginApplication(input.get("email"), input.get("password"));
         landingPage.clickMyAmazonButton();
+        Thread.sleep(3000);
         ProductCatalogue productCatalogue = new ProductCatalogue(driver);
         productCatalogue.addProductToCart(input.get("product"));
         landingPage.clickCartPageButton();
@@ -44,7 +44,7 @@ public class LoginTest extends BaseTest {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.clickOnSearchedProduct(input.get("searchProduct"));
         String productTitleVerify = searchPage.getProductTitle();
-        Assert.assertTrue(productTitleVerify.equalsIgnoreCase("Nike U Nk Perf Stirrup-Team"));
+        Assert.assertTrue(productTitleVerify.equalsIgnoreCase("ATOMOWE NAWYKI"));
     }
     @Test(dataProvider = "getData")
     public void checkoutFuncionality(HashMap<String, String> input) {
@@ -74,7 +74,7 @@ public class LoginTest extends BaseTest {
         String informationOfProduct = pdp.verificationOfInformationsAboutProductIsDisplayed();
         Assert.assertTrue(informationOfProduct.equalsIgnoreCase("Informacje o tym produkcie"));
         String brandNameOfProduct = pdp.getBrandNameOfProduct();
-        Assert.assertTrue(brandNameOfProduct.equalsIgnoreCase("Duracell"));
+        Assert.assertTrue(brandNameOfProduct.equalsIgnoreCase("Baseus"));
     }
     @Test(dataProvider = "getData")
     public void accountManagement(HashMap<String, String> input) {
